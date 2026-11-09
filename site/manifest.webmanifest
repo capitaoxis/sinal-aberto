@@ -1,0 +1,18 @@
+{
+  "name": "Sinal Aberto",
+  "short_name": "Sinal Aberto",
+  "description": "Aprenda sinais de Libras em lições curtas, de graça e sem criar conta.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "background_color": "#E9F1EE",
+  "theme_color": "#0B5D49",
+  "categories": ["education"],
+  "icons": [
+    { "src": "icones/icone.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icones/icone-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

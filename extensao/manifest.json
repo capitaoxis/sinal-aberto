@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Sinal Aberto: ver sinal em Libras",
+  "version": "0.1.0",
+  "description": "Selecione uma palavra, clique com o botão direito e veja o sinal em Libras. Dicionário de sinais, não é tradutor.",
+  "permissions": ["contextMenus"],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "icons": {
+    "16": "icones/icone-16.png",
+    "32": "icones/icone-32.png",
+    "48": "icones/icone-48.png",
+    "128": "icones/icone-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "sinal-aberto@libras.muraldasaude.com",
+      "strict_min_version": "121.0",
+      "data_collection_permissions": { "required": ["none"] }
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; media-src https://libras.muraldasaude.com; img-src 'self'"
+  }
+}

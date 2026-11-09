@@ -1,0 +1,48 @@
+{
+  "licoes": [
+    {
+      "id": "pessoas-e-lugares",
+      "titulo": "Pessoas e lugares",
+      "sinais": [
+        { "id": "aluno", "palavra": "Aluno" },
+        { "id": "filho", "palavra": "Filho" },
+        { "id": "banheiro", "palavra": "Banheiro" },
+        { "id": "banco", "palavra": "Banco" },
+        { "id": "esquina", "palavra": "Esquina" }
+      ]
+    },
+    {
+      "id": "como-me-sinto",
+      "titulo": "Sensações e saúde",
+      "sinais": [
+        { "id": "medo", "palavra": "Medo" },
+        { "id": "ruim", "palavra": "Ruim" },
+        { "id": "vontade", "palavra": "Vontade" },
+        { "id": "barulho", "palavra": "Barulho" },
+        { "id": "vacina", "palavra": "Vacina" }
+      ]
+    },
+    {
+      "id": "coisas",
+      "titulo": "Coisas do dia a dia",
+      "sinais": [
+        { "id": "maca", "palavra": "Maçã" },
+        { "id": "bala", "palavra": "Bala" },
+        { "id": "sapo", "palavra": "Sapo" },
+        { "id": "espelho", "palavra": "Espelho" },
+        { "id": "amarelo", "palavra": "Amarelo" }
+      ]
+    },
+    {
+      "id": "para-conversar",
+      "titulo": "Para conversar",
+      "sinais": [
+        { "id": "conhecer", "palavra": "Conhecer" },
+        { "id": "aproveitar", "palavra": "Aproveitar" },
+        { "id": "acontecer", "palavra": "Acontecer" },
+        { "id": "cinco", "palavra": "Cinco" },
+        { "id": "america", "palavra": "América" }
+      ]
+    }
+  ]
+}

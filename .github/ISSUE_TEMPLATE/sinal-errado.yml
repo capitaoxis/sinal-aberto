@@ -1,0 +1,34 @@
+name: Sinal errado
+description: Avise se um sinal está errado, incompleto ou é diferente na sua região.
+title: "Sinal: "
+labels: ["revisão de sinal"]
+body:
+  - type: input
+    id: palavra
+    attributes:
+      label: Qual sinal?
+      placeholder: Banheiro
+    validations:
+      required: true
+  - type: dropdown
+    id: problema
+    attributes:
+      label: O que encontrou?
+      options:
+        - O sinal está errado
+        - O sinal está certo, mas a palavra em português não combina
+        - Na minha região é diferente
+        - O vídeo não abre ou está ruim
+        - Outro problema
+    validations:
+      required: true
+  - type: textarea
+    id: detalhes
+    attributes:
+      label: Conte mais
+      description: Se puder, coloque o link de um vídeo com o sinal correto.
+  - type: input
+    id: quem
+    attributes:
+      label: Você é surdo, intérprete ou professor de Libras? De qual região?
+      description: Opcional. Ajuda a priorizar a revisão.

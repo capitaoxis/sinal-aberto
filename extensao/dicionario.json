@@ -1,0 +1,104 @@
+{
+  "sinais": [
+    {
+      "id": "aluno",
+      "palavra": "Aluno",
+      "licao": "Pessoas e lugares"
+    },
+    {
+      "id": "filho",
+      "palavra": "Filho",
+      "licao": "Pessoas e lugares"
+    },
+    {
+      "id": "banheiro",
+      "palavra": "Banheiro",
+      "licao": "Pessoas e lugares"
+    },
+    {
+      "id": "banco",
+      "palavra": "Banco",
+      "licao": "Pessoas e lugares"
+    },
+    {
+      "id": "esquina",
+      "palavra": "Esquina",
+      "licao": "Pessoas e lugares"
+    },
+    {
+      "id": "medo",
+      "palavra": "Medo",
+      "licao": "Sensações e saúde"
+    },
+    {
+      "id": "ruim",
+      "palavra": "Ruim",
+      "licao": "Sensações e saúde"
+    },
+    {
+      "id": "vontade",
+      "palavra": "Vontade",
+      "licao": "Sensações e saúde"
+    },
+    {
+      "id": "barulho",
+      "palavra": "Barulho",
+      "licao": "Sensações e saúde"
+    },
+    {
+      "id": "vacina",
+      "palavra": "Vacina",
+      "licao": "Sensações e saúde"
+    },
+    {
+      "id": "maca",
+      "palavra": "Maçã",
+      "licao": "Coisas do dia a dia"
+    },
+    {
+      "id": "bala",
+      "palavra": "Bala",
+      "licao": "Coisas do dia a dia"
+    },
+    {
+      "id": "sapo",
+      "palavra": "Sapo",
+      "licao": "Coisas do dia a dia"
+    },
+    {
+      "id": "espelho",
+      "palavra": "Espelho",
+      "licao": "Coisas do dia a dia"
+    },
+    {
+      "id": "amarelo",
+      "palavra": "Amarelo",
+      "licao": "Coisas do dia a dia"
+    },
+    {
+      "id": "conhecer",
+      "palavra": "Conhecer",
+      "licao": "Para conversar"
+    },
+    {
+      "id": "aproveitar",
+      "palavra": "Aproveitar",
+      "licao": "Para conversar"
+    },
+    {
+      "id": "acontecer",
+      "palavra": "Acontecer",
+      "licao": "Para conversar"
+    },
+    {
+      "id": "cinco",
+      "palavra": "Cinco",
+      "licao": "Para conversar"
+    },
+    {
+      "id": "america",
+      "palavra": "América",
+      "licao": "Para conversar"
+    }
+  ]
+}

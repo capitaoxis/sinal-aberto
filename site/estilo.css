@@ -1,0 +1,272 @@
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("fontes/atkinson-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("fontes/atkinson-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --fundo: #E9F1EE;
+  --superficie: #FFFFFF;
+  --tinta: #10312A;
+  --tinta-suave: #47635C;
+  --sinal: #0B5D49;
+  --sinal-vivo: #0F8566;
+  --luz-apagada: #C5D5CF;
+  --acerto-fundo: #D5F2E6;
+  --erro: #A8321F;
+  --erro-fundo: #FBE3DD;
+  --foco: #1B4FD8;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0D1F1B;
+    --superficie: #17302A;
+    --tinta: #EAF4F0;
+    --tinta-suave: #A9C2BA;
+    --sinal: #5FD8B4;
+    --sinal-vivo: #5FD8B4;
+    --luz-apagada: #36514A;
+    --acerto-fundo: #123F33;
+    --erro: #FFA893;
+    --erro-fundo: #47201A;
+    --foco: #A9C4FF;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  outline: none;
+}
+
+h1, h2, p { margin: 0; }
+h1:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--foco); outline-offset: 3px; }
+
+.pular {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  padding: .5rem 1rem;
+  background: var(--superficie);
+  color: var(--tinta);
+}
+.pular:focus { top: 1rem; z-index: 10; }
+
+.so-leitor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+/* Luzes: um sinal aprendido acende uma luz */
+.luzes { display: flex; gap: .4rem; list-style: none; margin: 0; padding: 0; }
+.luz {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 2px solid var(--tinta-suave);
+  background: transparent;
+}
+/* Acesa = cheia; apagada = só o contorno. A diferença não depende só da cor. */
+.luz.acesa { border-color: var(--sinal-vivo); background: var(--sinal-vivo); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sinal-vivo) 28%, transparent); }
+
+/* Início */
+.topo { max-width: 40rem; margin-bottom: 2.5rem; }
+.topo h1 {
+  font-size: clamp(3rem, 12vw, 6.5rem);
+  line-height: .95;
+  letter-spacing: -.03em;
+  color: var(--sinal);
+}
+.topo p { margin-top: 1rem; font-size: 1.3rem; }
+
+.resumo { margin-bottom: 1.5rem; color: var(--tinta-suave); }
+
+.trilha { list-style: none; margin: 0; padding: 0; max-width: 40rem; }
+.trilha li + li { border-top: 2px solid var(--luz-apagada); }
+.licao {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: .5rem 1rem;
+  width: 100%;
+  padding: 1.25rem .25rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.licao:hover .licao-titulo { color: var(--sinal); }
+.licao-titulo { font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+.licao-acao { grid-row: 1 / span 2; grid-column: 2; font-weight: 700; color: var(--sinal); }
+
+.rodape {
+  max-width: 40rem;
+  margin-top: 3rem;
+  font-size: 1rem;
+  color: var(--tinta-suave);
+}
+.rodape p + p { margin-top: .75rem; }
+.rodape a { color: inherit; }
+.aviso-previa {
+  padding: .9rem 1rem;
+  background: var(--superficie);
+  border: 2px solid var(--sinal-vivo);
+  border-radius: .8rem;
+  color: var(--tinta);
+}
+
+/* Lição */
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.barra .luzes { flex: 1; flex-wrap: wrap; }
+.sair {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: .5rem .75rem;
+  border: 0;
+  background: none;
+  color: var(--tinta-suave);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.exercicio { display: grid; gap: 1.5rem; }
+@media (min-width: 52rem) {
+  .exercicio { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: start; gap: 2.5rem; }
+}
+
+.palco video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 1rem;
+  background: var(--tinta);
+}
+.controles { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .6rem; }
+.controle {
+  min-height: 2.75rem;
+  padding: .35rem .9rem;
+  border: 2px solid var(--tinta-suave);
+  border-radius: .6rem;
+  background: none;
+  color: var(--tinta);
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.controle[aria-pressed="true"] { background: var(--tinta); border-color: var(--tinta); color: var(--fundo); }
+
+.lado h1 { font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.2; margin-bottom: 1rem; }
+.palavra-grande {
+  font-size: clamp(2.75rem, 9vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--sinal);
+  overflow-wrap: anywhere;
+}
+.dica { margin-top: .75rem; color: var(--tinta-suave); }
+
+.opcoes { display: grid; gap: .6rem; }
+.opcao {
+  min-height: 3.5rem;
+  padding: .6rem 1rem;
+  border: 2px solid var(--tinta-suave);
+  border-radius: .8rem;
+  background: var(--superficie);
+  color: var(--tinta);
+  font: inherit;
+  font-size: 1.25rem;
+  text-align: left;
+  cursor: pointer;
+}
+.opcao:hover:not(:disabled) { border-color: var(--sinal); }
+.opcao:disabled { cursor: default; }
+.opcao.certa { border-color: var(--sinal-vivo); border-width: 4px; background: var(--acerto-fundo); font-weight: 700; }
+.opcao.errada { border-color: var(--erro); border-style: dashed; background: var(--erro-fundo); }
+.opcao.certa:not(.opcao-video)::after { content: " (certa)"; }
+.opcao.errada:not(.opcao-video)::after { content: " (errada)"; }
+
+.opcoes-video { grid-template-columns: 1fr 1fr; }
+.opcao-video {
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+  font-size: 1rem;
+}
+.opcao-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; pointer-events: none; }
+.opcao-video span { display: block; padding: .5rem; }
+.opcao-video.sem-video video { visibility: hidden; }
+
+.retorno { margin-top: 1rem; padding: 1rem; border-radius: .8rem; font-weight: 700; border: 2px solid transparent; }
+.retorno.certo { background: var(--acerto-fundo); border-color: var(--sinal-vivo); }
+.retorno.errado { background: var(--erro-fundo); border-color: var(--erro); border-style: dashed; }
+
+.seguir {
+  width: 100%;
+  min-height: 3.5rem;
+  margin-top: 1rem;
+  padding: .6rem 1.5rem;
+  border: 0;
+  border-radius: .8rem;
+  background: var(--sinal);
+  color: var(--fundo);
+  font: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Fim da lição */
+.fim { max-width: 40rem; }
+.fim h1 { font-size: clamp(2.5rem, 9vw, 4.5rem); line-height: 1; letter-spacing: -.02em; color: var(--sinal); }
+.fim p { margin-top: 1rem; font-size: 1.3rem; }
+.fim .luzes { margin-top: 1.5rem; }
+.fim .luz { width: 1.6rem; height: 1.6rem; }
+.fim .seguir { max-width: 24rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .fim .luz.acesa { animation: acender .5s ease-out backwards; animation-delay: calc(var(--ordem) * 120ms); }
+}
+@keyframes acender {
+  from { transform: scale(.4); background: var(--luz-apagada); box-shadow: none; }
+}
+
+/* Avatar do VLibras, só carregado quando a pessoa pede */
+.avatar { max-width: 40rem; margin-top: 2.5rem; }
+.avatar h2 { font-size: 1.5rem; line-height: 1.2; margin-bottom: .5rem; }
+.avatar .controle { margin-top: 1rem; }

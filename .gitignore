@@ -1,0 +1,7 @@
+dados/
+rascunhos/
+*.zip
+*.parcial
+__pycache__/
+.venv/
+node_modules/
