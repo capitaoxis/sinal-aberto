@@ -270,3 +270,11 @@ h1:focus { outline: none; }
 .avatar { max-width: 40rem; margin-top: 2.5rem; }
 .avatar h2 { font-size: 1.5rem; line-height: 1.2; margin-bottom: .5rem; }
 .avatar .controle { margin-top: 1rem; }
+
+/* Sinal na página inicial: mostra de cara o que o site ensina */
+.topo { display: grid; gap: 1.5rem; max-width: none; }
+.sinal-do-topo { margin: 0; }
+.sinal-do-topo figcaption { margin-top: .5rem; color: var(--tinta-suave); }
+@media (min-width: 52rem) {
+  .topo { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 2.5rem; }
+}

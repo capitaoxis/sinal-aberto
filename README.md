@@ -12,7 +12,7 @@ Aprenda sinais de Libras em lições curtas. É de graça, não precisa de conta
 - Vídeos com câmera lenta e pausa
 - Exercícios de reconhecer o sinal, com revisão de quem errou no fim da lição
 - Uso por teclado, modo escuro e instalação no celular
-- [Extensão de navegador](extensao/README.md): selecionar uma palavra e ver o sinal. Testada no Chrome; ainda não está nas lojas nem foi testada no Firefox
+- [Extensão de navegador](extensao/README.md): selecionar uma palavra e ver o sinal. [Baixar](https://libras.muraldasaude.com/sinal-aberto-extensao.zip). Testada no Chrome; ainda não está nas lojas nem foi testada no Firefox
 
 ## O que ainda vem
 
