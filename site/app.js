@@ -103,7 +103,7 @@ function palco(sinal, tomada, rotulo) {
   const pausar = el("button", {
     classe: "controle",
     type: "button",
-    textContent: semAutoplay ? "Reproduzir" : "Pausar",
+    textContent: semAutoplay ? "Tocar" : "Pausar",
     onclick: () => {
       if (video.paused) video.play().catch(() => {});
       else video.pause();
@@ -111,7 +111,7 @@ function palco(sinal, tomada, rotulo) {
   });
   // O texto do botão segue o estado real do vídeo (o navegador pode barrar o autoplay).
   video.addEventListener("play", () => { pausar.textContent = "Pausar"; });
-  video.addEventListener("pause", () => { pausar.textContent = "Reproduzir"; });
+  video.addEventListener("pause", () => { pausar.textContent = "Tocar"; });
 
   const falha = el("p", { classe: "dica", hidden: true, role: "status", textContent: "O vídeo não abriu. Veja se a internet está ligada ou siga para o próximo." });
   video.addEventListener("error", () => { falha.hidden = false; });
@@ -152,7 +152,7 @@ function secaoAvatar() {
       try {
         await carregarVLibras();
         window.VLibrasWidget?.open?.();
-        estado.textContent = "VLibras ligado. Espere o avatar aparecer e toque em um texto desta página para ver em Libras.";
+        estado.textContent = "VLibras ligado. Espere o avatar aparecer. Depois, toque em um texto desta página.";
       } catch {
         ligar.disabled = false;
         estado.textContent = "O VLibras não abriu. Confira a conexão e tente de novo.";
@@ -160,9 +160,9 @@ function secaoAvatar() {
     },
   });
   return el("section", { classe: "avatar", "aria-labelledby": "titulo-avatar" },
-    el("h2", { id: "titulo-avatar", textContent: "Outras palavras com avatar 3D" }),
-    el("p", { textContent: "O VLibras, do governo federal, mostra em Libras textos que não estão nas lições. A tradução é automática e pode ter erros." }),
-    el("p", { classe: "dica", textContent: "Ao ligar, seu navegador conecta ao serviço do VLibras, que tem regras próprias e pode registrar dados de uso. O Sinal Aberto não recebe esses dados." }),
+    el("h2", { id: "titulo-avatar", textContent: "Ver textos em Libras com avatar 3D" }),
+    el("p", { textContent: "O VLibras é um avatar 3D do governo federal. Ele mostra em Libras os textos de um site. A tradução é automática e pode ter erros." }),
+    el("p", { classe: "dica", textContent: "O VLibras é um serviço externo, com regras próprias. Ele pode registrar dados de uso. O Sinal Aberto não recebe esses dados." }),
     ligar,
     estado,
   );
@@ -192,7 +192,7 @@ function telaInicio() {
     el("header", { classe: "topo" },
       el("div", {},
         el("h1", { textContent: "Sinal Aberto" }),
-        el("p", { textContent: "Aprenda sinais de Libras em lições curtas. É de graça, não precisa de conta e não usa som." }),
+        el("p", { textContent: "Aprenda sinais de Libras em lições curtas. Cada lição ensina 5 sinais. É de graça, sem conta e sem som." }),
       ),
       el("figure", { classe: "sinal-do-topo" },
         palco({ id: "banheiro" }, 1, "Pessoa fazendo o sinal de Banheiro"),
@@ -203,7 +203,7 @@ function telaInicio() {
     el("ul", { classe: "trilha", "aria-label": "Lições" }, ...itens),
     secaoAvatar(),
     el("footer", { classe: "rodape" },
-      el("p", { classe: "aviso-previa", textContent: "Versão de teste. As lições ainda não foram revisadas por professores surdos e não substituem um curso nem um intérprete." }),
+      el("p", { classe: "aviso-previa", textContent: "Versão de teste. Professores surdos ainda não revisaram as lições. O site não substitui um curso nem um intérprete." }),
       el("p", {},
         "Vídeos: ",
         el("a", { href: "https://zenodo.org/records/4322984", textContent: "MINDS-Libras" }),
@@ -267,7 +267,7 @@ function telaConhecer(estado, { sinal }) {
       el("div", { classe: "lado" },
         el("h1", { textContent: "Novo sinal" }),
         el("p", { classe: "palavra-grande", textContent: sinal.palavra }),
-        el("p", { classe: "dica", textContent: "Repita o movimento com as suas mãos antes de continuar." }),
+        el("p", { classe: "dica", textContent: "Faça o sinal com as suas mãos. Depois, continue." }),
         seguir,
       ),
     ),
@@ -287,7 +287,7 @@ function responder(estado, sinal, escolhido, botoes, lado) {
 
   const mensagem = acertou
     ? `Isso! Este é o sinal de ${sinal.palavra}.`
-    : `Quase. A resposta certa é ${sinal.palavra}. Você vai ver este sinal de novo no fim.`;
+    : `A resposta certa é ${sinal.palavra}. Este sinal volta no fim da lição.`;
   avisoLeitor.textContent = mensagem;
   const seguir = botaoSeguir(() => avancar(estado, acertou));
   lado.append(
@@ -351,11 +351,11 @@ function telaQualVideo(estado, { sinal, opcoes }) {
   const alternar = el("button", {
     classe: "controle",
     type: "button",
-    textContent: semAutoplay ? "Reproduzir vídeos" : "Pausar vídeos",
+    textContent: semAutoplay ? "Tocar vídeos" : "Pausar vídeos",
     onclick: () => {
       const parar = videos.some((v) => !v.paused);
       videos.forEach((v) => (parar ? v.pause() : v.play().catch(() => {})));
-      alternar.textContent = parar ? "Reproduzir vídeos" : "Pausar vídeos";
+      alternar.textContent = parar ? "Tocar vídeos" : "Pausar vídeos";
     },
   });
   trocarTela(
@@ -381,7 +381,7 @@ function telaFim(licao) {
   trocarTela(
     el("section", { classe: "fim" },
       el("h1", { textContent: "Lição concluída" }),
-      el("p", { textContent: `Você aprendeu: ${licao.sinais.map((s) => s.palavra).join(", ")}.` }),
+      el("p", { textContent: `Você praticou: ${licao.sinais.map((s) => s.palavra).join(", ")}.` }),
       luzes(licao.sinais.length, licao.sinais.length),
       voltar,
     ),
@@ -395,7 +395,7 @@ async function iniciar() {
     ({ licoes } = await resposta.json());
     telaInicio();
   } catch {
-    trocarTela(el("h1", { textContent: "Sinal Aberto" }), el("p", { textContent: "As lições não abriram. Veja a internet e recarregue a página." }));
+    trocarTela(el("h1", { textContent: "Sinal Aberto" }), el("p", { textContent: "As lições não abriram. Confira a internet e recarregue a página." }));
   }
 }
 

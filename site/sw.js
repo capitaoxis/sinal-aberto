@@ -2,7 +2,7 @@
 // vídeos ficam guardados depois de assistidos. Todos os caminhos são relativos
 // ao escopo, então funciona na raiz de um domínio e em localhost.
 
-const VERSAO = "2";
+const VERSAO = "3";
 const CACHE_PAGINAS = `sinal-aberto-paginas-v${VERSAO}`;
 const CACHE_VIDEOS = "sinal-aberto-videos-v1";
 const MAX_VIDEOS = 150;
